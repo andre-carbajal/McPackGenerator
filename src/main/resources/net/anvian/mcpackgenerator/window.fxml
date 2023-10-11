@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="90.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.6" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.anvian.mcpackgenerator.controller.WindowController">
+
+    <children>
+        <Button layoutX="14.0" layoutY="32.0" mnemonicParsing="false" onAction="#searchAction" text="Search" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0" />
+        <TextField fx:id="dir" editable="false" layoutX="149.0" layoutY="32.0" prefHeight="25.0" prefWidth="493.0" text="Folder location" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0" />
+        <Button layoutX="515.0" layoutY="51.0" mnemonicParsing="false" onAction="#generateAction" text="Generate" />
+        <Button layoutX="458.0" layoutY="51.0" mnemonicParsing="false" onAction="#cleanAction" text="Clean" />
+    </children>
+
+</AnchorPane>

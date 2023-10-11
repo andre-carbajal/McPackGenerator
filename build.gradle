@@ -6,8 +6,8 @@ plugins {
     id 'org.beryx.jlink' version '2.25.0'
 }
 
-group 'net.anvian'
-version '1.0-SNAPSHOT'
+group = project.group
+version = project.version
 
 repositories {
     mavenCentral()
@@ -26,7 +26,7 @@ tasks.withType(JavaCompile) {
 
 application {
     mainModule = 'net.anvian.mcpackgenerator'
-    mainClass = 'net.anvian.mcpackgenerator.HelloApplication'
+    mainClass = 'net.anvian.mcpackgenerator.Aplication'
 }
 
 javafx {

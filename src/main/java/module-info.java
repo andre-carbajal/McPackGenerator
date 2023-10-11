@@ -5,4 +5,6 @@ module net.anvian.mcpackgenerator {
 
     opens net.anvian.mcpackgenerator to javafx.fxml;
     exports net.anvian.mcpackgenerator;
+    exports net.anvian.mcpackgenerator.controller;
+    opens net.anvian.mcpackgenerator.controller to javafx.fxml;
 }
