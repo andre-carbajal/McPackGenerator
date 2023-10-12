@@ -15,7 +15,7 @@ public class Application extends javafx.application.Application {
         FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("window.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 600, 90);
 
-        stage.setTitle("McPackGenerator v2.0");
+        stage.setTitle("McPackGenerator v2.1");
         stage.getIcons().add(new Image(Objects.requireNonNull(ClassLoader.getSystemResourceAsStream("icon.png"))));
         stage.setScene(scene);
         stage.setResizable(false);
