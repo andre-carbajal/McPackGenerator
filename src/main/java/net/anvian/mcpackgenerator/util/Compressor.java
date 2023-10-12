@@ -22,8 +22,10 @@ public class Compressor {
             Files.walkFileTree(folderLocation, new SimpleFileVisitor<>() {
                 @Override
                 public FileVisitResult preVisitDirectory(Path dir, BasicFileAttributes attrs){
-                    if (dir.getFileName().toString().equals(".git")){
-                        return FileVisitResult.SKIP_SUBTREE;
+                    for (FoldersToIgnore folder : FoldersToIgnore.values()) {
+                        if (dir.getFileName().toString().equals(folder.getFolderName())) {
+                            return FileVisitResult.SKIP_SUBTREE;
+                        }
                     }
                     return FileVisitResult.CONTINUE;
                 }
