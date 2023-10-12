@@ -21,6 +21,14 @@ public class Compressor {
         ){
             Files.walkFileTree(folderLocation, new SimpleFileVisitor<>() {
                 @Override
+                public FileVisitResult preVisitDirectory(Path dir, BasicFileAttributes attrs){
+                    if (dir.getFileName().toString().equals(".git")){
+                        return FileVisitResult.SKIP_SUBTREE;
+                    }
+                    return FileVisitResult.CONTINUE;
+                }
+
+                @Override
                 public FileVisitResult visitFile(Path file, BasicFileAttributes attributes) {
 
                     if (attributes.isSymbolicLink()) {
@@ -44,7 +52,7 @@ public class Compressor {
                         System.out.println("Zip file: " + file);
 
                     } catch (IOException e) {
-                        e.printStackTrace();
+                        throw new RuntimeException(e);
                     }
                     return FileVisitResult.CONTINUE;
                 }
