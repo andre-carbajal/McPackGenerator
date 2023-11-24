@@ -4,14 +4,29 @@ McPackGenerator is a Java application that allows users to compress a selected d
 
 ## Installation
 
+### Option 1: Compile from Source
+
 1. Clone the repository: `git clone https://github.com/andre-carbajal/McPackGenerator.git`
 2. Navigate to the project directory: `cd McPackGenerator`
-3. Build the project using Gradle: `gradle build`
+3. Build the project
+
+### Option 2: Download from Releases
+
+1. Go to the [releases page](https://github.com/andre-carbajal/McPackGenerator/releases) of the repository.
+2. Download the latest release.
 
 ## Usage
 
-1. Run the application: `java -jar build/libs/McPackGenerator.jar`
+### If Compiled from Source
+
+1. Run the application: `java -jar McPackGenerator.jar`
 2. Use the GUI to select a directory and generate a .mcpack file.
+
+### If Downloaded from Releases
+
+1. Ensure you have a JDK that includes JavaFX or add the necessary JavaFX modules to your JDK.
+2. Run the application: `java -jar McPackGenerator.jar`
+3. Use the GUI to select a directory and generate a .mcpack file.
 
 ## Features
 
