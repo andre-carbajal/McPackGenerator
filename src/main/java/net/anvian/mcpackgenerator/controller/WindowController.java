@@ -1,10 +1,11 @@
 package net.anvian.mcpackgenerator.controller;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.stage.DirectoryChooser;
-import net.anvian.mcpackgenerator.util.Compressor;
+import net.anvian.mcpackgenerator.compress.Compressor;
+import net.anvian.mcpackgenerator.compress.ICompress;
+import net.anvian.mcpackgenerator.util.AlertService;
 import net.anvian.mcpackgenerator.util.FolderLocation;
 
 import java.io.File;
@@ -13,6 +14,8 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 public class WindowController {
+
+    private static final ICompress compressor = new Compressor();
 
     @FXML
     private TextField dir;
@@ -29,7 +32,7 @@ public class WindowController {
                 dir.setText(String.valueOf(path));
             }
         }catch (NullPointerException e) {
-            e.printStackTrace();
+            AlertService.alertError("Please select a folder");
         }
     }
 
@@ -39,21 +42,21 @@ public class WindowController {
         Path path = FolderLocation.getPath();
 
         if (path == null) {
-            showError("Please select a folder");
+            AlertService.alertError("Please select a folder");
             return;
         }
 
         String zipFileName = getZipFileName(path);
 
-        if (Files.exists(Paths.get(zipFileName))) {
-            showError("File already exists");
+        if (fileExists(zipFileName)) {
+            AlertService.alertError("File already exists");
             return;
         }
 
-        Compressor.compress(zipFileName);
+        compressor.compress(zipFileName);
 
-        if (!Files.exists(Paths.get(zipFileName))) {
-            showError("Failed to create the zip file");
+        if (!fileExists(zipFileName)) {
+           AlertService.alertError("Failed to create the zip file");
         }
     }
 
@@ -67,10 +70,8 @@ public class WindowController {
         return path + ".mcpack";
     }
 
-    private void showError(String message){
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setContentText(message);
-        alert.show();
+    private boolean fileExists(String fileName) {
+        return Files.exists(Paths.get(fileName));
     }
 
 }
