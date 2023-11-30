@@ -6,7 +6,7 @@ McPackGenerator is a Java application that allows users to compress a selected d
 
 ### Prerequisites
 
-- JavaFX 17 or higher
+- JavaFX 17 or higher([Zulu JDK with JavaFX is recommended](https://www.azul.com/downloads/?version=java-17-lts&package=jdk-fx#zulu))
 
 ### Option 1: Compile from Source
 
